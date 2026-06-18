@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/kervisvasquez1993/Gest-o-Financeira.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/kervisvasquez1993/gestoe-finaciera-frontend.git
