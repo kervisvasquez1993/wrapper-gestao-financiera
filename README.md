@@ -8,17 +8,20 @@ Os repositórios backend e frontend estão incluídos como **submódulos do git*
 ## Quick start
 
 ```bash
-# 1. Clonar com submódulos
-git clone --recurse-submodules <url-do-wrapper>
+# 1. Clonar o repositório
+git clone <url-do-wrapper>
 cd wrapper-product
 
-# 2. Criar o .env do wrapper (editar JWT_SECRET)
+# 2. Baixar os submódulos (backend e frontend)
+git submodule update --init --recursive
+
+# 3. Criar o .env do wrapper (editar JWT_SECRET)
 cp .env.example .env
 
-# 3. Subir tudo
+# 4. Subir tudo
 docker compose up -d --build
 
-# 4. Migrations + seed (dentro do contêiner)
+# 5. Migrations + seed (dentro do contêiner)
 docker compose exec backend node ./node_modules/typeorm/cli.js migration:run -d dist/shared/database/data-source.js
 docker compose exec backend node dist/database/seed.js
 ```
@@ -49,21 +52,21 @@ docker compose exec backend node dist/database/seed.js
 
 ## 1. Clonar o projeto
 
-Um único comando baixa o wrapper **e** o código do backend e frontend (os submódulos já estão configurados):
+```bash
+git clone <url-do-wrapper>
+cd wrapper-product
+git submodule update --init --recursive
+```
+
+> O `git submodule update --init --recursive` é **obrigatório**: baixa o código do
+> backend (`Gest-o-Financeira`) e do frontend (`gestoe-finaciera-frontend`) dentro
+> das pastas `backend/` e `frontend/`. Sem ele, essas pastas chegam vazias e o
+> `docker compose up` falha com `failed to read dockerfile`.
+
+Atalho para clonar e baixar os submódulos em um único comando:
 
 ```bash
 git clone --recurse-submodules <url-do-wrapper>
-cd wrapper-product
-```
-
-> A flag `--recurse-submodules` é **obrigatória**: traz automaticamente o backend
-> (`Gest-o-Financeira`) e o frontend (`gestoe-finaciera-frontend`) dentro das
-> pastas `backend/` e `frontend/`. Sem ela, essas pastas chegam vazias.
-
-Se você já clonou sem a flag e as pastas estão vazias, execute:
-
-```bash
-git submodule update --init --recursive
 ```
 
 ---
