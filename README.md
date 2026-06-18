@@ -10,7 +10,7 @@ Os repositórios backend e frontend estão incluídos como **submódulos do git*
 ```bash
 # 1. Clonar o repositório
 git clone <url-do-wrapper>
-cd wrapper-product
+cd wrapper-gestao-financiera
 
 # 2. Baixar os submódulos (backend e frontend)
 git submodule update --init --recursive
