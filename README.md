@@ -9,7 +9,7 @@ Os repositórios backend e frontend estão incluídos como **submódulos do git*
 
 ```bash
 # 1. Clonar o repositório
-git clone <url-do-wrapper>
+git clone --recurse-submodules https://github.com/kervisvasquez1993/wrapper-gestao-financiera
 cd wrapper-gestao-financiera
 
 # 2. Baixar os submódulos (backend e frontend)
