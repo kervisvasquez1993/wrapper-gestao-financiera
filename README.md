@@ -53,7 +53,7 @@ docker compose exec backend node dist/database/seed.js
 ## 1. Clonar o projeto
 
 ```bash
-git clone <url-do-wrapper>
+git clone --recurse-submodules https://github.com/kervisvasquez1993/wrapper-gestao-financiera
 cd wrapper-product
 git submodule update --init --recursive
 ```
